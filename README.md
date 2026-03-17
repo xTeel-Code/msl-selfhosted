@@ -1,0 +1,2 @@
+# msl-selfhosted
+MySeriesList - SelfHosted
