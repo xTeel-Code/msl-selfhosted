@@ -7,8 +7,11 @@
 body {
     font-family: Arial, sans-serif;
     background: #f5f7fb;
-    color: #222;
+    color: #111827;
+    line-height: 1.5;
 }
+
+/* Layout */
 
 header {
     background: #1f2937;
@@ -48,6 +51,7 @@ nav a {
     padding: 10px 14px;
     border-radius: 8px;
     transition: background 0.2s ease;
+    font-size: 14px;
 }
 
 nav a:hover,
@@ -57,4 +61,250 @@ nav a.active {
 
 main {
     padding: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+    padding: 16px 0 24px;
+}
+
+/* Hero */
+
+.hero {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    border-radius: 16px;
+    padding: 32px 24px;
+    color: white;
+    margin-bottom: 24px;
+}
+
+.hero-text h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.hero-text p {
+    font-size: 15px;
+    margin-bottom: 16px;
+    max-width: 480px;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary {
+    background: #111827;
+    color: white;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.25);
+}
+
+.btn.primary:hover {
+    background: #020617;
+}
+
+.btn.ghost {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-left: 8px;
+}
+
+.btn.ghost:hover {
+    background: rgba(15, 23, 42, 0.3);
+}
+
+.btn.full {
+    width: 100%;
+}
+
+.btn.small {
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+/* Cards */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.series-card .meta {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 8px 0 12px;
+}
+
+/* Auth / forms */
+
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.auth-card {
+    background: white;
+    padding: 24px 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.auth-card h2 {
+    margin-bottom: 12px;
+}
+
+.auth-note {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 12px;
+    text-align: center;
+}
+
+.auth-form .form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 9px 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3);
+}
+
+/* Alerts */
+
+.alert {
+    font-size: 13px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+/* Tables */
+
+.section-header {
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+.section-header p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.table-wrapper {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.table thead {
+    background: #f3f4f6;
+}
+
+.table th,
+.table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+.empty-state {
+    text-align: center;
+    color: #6b7280;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    header {
+        padding: 12px 16px;
+    }
+
+    main {
+        padding: 16px;
+    }
+
+    .hero {
+        padding: 20px 16px;
+    }
+
+    .hero-text h2 {
+        font-size: 22px;
+    }
 }
