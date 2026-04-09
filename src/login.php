@@ -31,8 +31,8 @@
                     required
                 >
             </div>
-
-            <button type="submit" class="btn primary full">Sign In</button>
+            <button type="submit" class="btn primary full" style="margin-bottom: 10px;">Sign In</button>
+            <button type="submit" class="btn outline full">Register</button>
         </form>
 
         <p class="auth-note">Don’t have an account? Contact the admin to get access.</p>

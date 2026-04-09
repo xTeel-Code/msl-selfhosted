@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'partials/header.php'; ?>
 
 <section class="section-header">
     <h2>Leaderboard</h2>
