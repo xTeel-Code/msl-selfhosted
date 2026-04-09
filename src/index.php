@@ -1,4 +1,4 @@
-<?php include 'partials/header.php'; ?>
+<?php require_once 'partials/header.php'; ?>
 
 <section class="hero">
     <div class="hero-text">

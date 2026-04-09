@@ -1,5 +1,9 @@
-<!-- header.php --><?php
- require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/db.php';?>
+<?
+session_start();
+$my_session_id = session_id();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/core/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/users.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

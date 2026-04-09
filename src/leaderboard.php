@@ -1,4 +1,4 @@
-<?php include 'partials/header.php'; ?>
+<?php require_once 'partials/header.php'; ?>
 
 <section class="section-header">
     <h2>Leaderboard</h2>

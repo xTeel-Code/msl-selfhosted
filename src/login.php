@@ -1,4 +1,4 @@
-<?php include 'partials/header.php'; ?>
+<?php require_once 'partials/header.php'; ?>
 
 <section class="auth-wrapper">
     <div class="auth-card">
@@ -32,6 +32,16 @@
                 >
             </div>
             <button type="submit" class="btn primary full" style="margin-bottom: 10px;">Sign In</button>
+            <?php
+                if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                $db = new Database();
+                $pdo = $db->getConnection();
+                $user = new user($pdo,$_POST);
+                if ($user->userValidation()) {
+                    header("Location: http://127.0.0.1:8080/index.php");
+                }
+                }
+            ?>
             <button type="submit" class="btn outline full">Register</button>
         </form>
 

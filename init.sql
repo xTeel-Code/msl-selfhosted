@@ -2,7 +2,9 @@ USE myapp;
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(30) UNIQUE NOT NULL
+    username VARCHAR(30) UNIQUE NOT NULL,
+    password VARCHAR(10) NOT NULL,
+    role VARCHAR(5) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS series (
