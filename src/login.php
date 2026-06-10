@@ -1,12 +1,36 @@
-<?php require_once 'partials/header.php'; ?>
+<?php
+if (session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+$my_session_id = session_id();
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/core/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/users.php';
+
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $database = new Database();
+    $pdo = $database->getConnection();
+    $user = new user($pdo, $_POST);
+
+    if ($user->userValidation()) {
+        header('Location: /index.php');
+        exit;
+    } else {
+        $error = "Bad username or password.";
+    }
+}
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+?>
 
 <section class="auth-wrapper">
     <div class="auth-card">
         <h2>Login</h2>
 
-        <?php if (!empty($error_message)): ?>
+        <?php if (!empty($error)): ?>
             <div class="alert error">
-                <?= htmlspecialchars($error_message) ?>
+                <?= htmlspecialchars($error) ?>
             </div>
         <?php endif; ?>
 
@@ -31,20 +55,10 @@
                     required
                 >
             </div>
-            <button type="submit" class="btn primary full" style="margin-bottom: 10px;">Sign In</button>
-            <?php
-                if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $db = new Database();
-                $pdo = $db->getConnection();
-                $user = new user($pdo,$_POST);
-                if ($user->userValidation()) {
-                    echo "Great you're up";
-                }
-                }
-            ?>
-            <button type="submit" class="btn outline full">Register</button>
+
+            <button type="submit" class="btn primary full">Sign In</button>
         </form>
 
-        <p class="auth-note">Don’t have an account? Contact the admin to get access.</p>
+        <p class="auth-note">Don't have an account? Contact the admin to get access.</p>
     </div>
 </section>

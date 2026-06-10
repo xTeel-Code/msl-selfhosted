@@ -16,8 +16,6 @@
         </thead>
         <tbody>
         <?php
-        // Example structure – replace with your real data loop
-        // $leaderboard = [...];
         if (!empty($leaderboard)):
             $rank = 1;
             foreach ($leaderboard as $row):

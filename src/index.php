@@ -2,8 +2,8 @@
 
 <section class="hero">
     <div class="hero-text">
-        <h2>Welcome to Quiz Arena</h2>
-        <p>Test your knowledge across multiple series, gain points, and see your name on the global leaderboard.</p>
+        <h2>Welcome to My Series List</h2>
+        <p>Race eachother with Friends and family to find out who spends most of their time on couch.</p>
         <a href="series.php" class="btn primary">Start a Series</a>
         <a href="leaderboard.php" class="btn ghost">View Leaderboard</a>
     </div>
