@@ -12,3 +12,5 @@ CREATE TABLE IF NOT EXISTS series (
     series_name INT NOT NULL,
     current_status VARCHAR(40) NOT NULL
 );
+INSERT INTO users (username, password, role) VALUES
+('admin', '1234', 'admin'),
