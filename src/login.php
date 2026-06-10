@@ -38,6 +38,7 @@
                 $pdo = $db->getConnection();
                 $user = new user($pdo,$_POST);
                 if ($user->userValidation()) {
+                    echo "Great you're up";
                 }
                 }
             ?>
