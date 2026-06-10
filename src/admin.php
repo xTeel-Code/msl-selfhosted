@@ -1,5 +1,18 @@
 <?php require_once 'partials/header.php'; ?>
+<?php
+session_start();
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: /index.php');
+    exit;
+}
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/core/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/series.php';
+
+$db     = new Database();
+$pdo    = $db->getConnection();
+$series = Series::getAll($pdo);
+?>
 <section class="admin-panel">
     <div class="section-header">
         <h2>Admin Panel</h2>
