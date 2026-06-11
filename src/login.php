@@ -62,3 +62,4 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
         <p class="auth-note">Don't have an account? Contact the admin to get access.</p>
     </div>
 </section>
+<?php include 'partials/footer.php';?>

@@ -1,4 +1,17 @@
-<?php require_once 'partials/header.php'; ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/core/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/entry.php';
+
+$db = new Database();
+$pdo = $db->getConnection();
+$leaderboard = Entry::getLeaderboard($pdo);
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php';
+?>
 
 <section class="section-header">
     <h2>Leaderboard</h2>
@@ -8,31 +21,32 @@
 <section class="table-wrapper">
     <table class="table">
         <thead>
-        <tr>
-            <th>#</th>
-            <th>Player</th>
-            <th>Points</th>
-        </tr>
+            <tr>
+                <th>#</th>
+                <th>Player</th>
+                <th>Series</th>
+                <th>Episodes</th>
+                <th>Score</th>
+            </tr>
         </thead>
         <tbody>
-        <?php
-        if (!empty($leaderboard)):
-            $rank = 1;
-            foreach ($leaderboard as $row):
-                ?>
+            <?php if (!empty($leaderboard)): ?>
+                <?php $rank = 1; ?>
+                <?php foreach ($leaderboard as $row): ?>
+                    <tr>
+                        <td><?= $rank++ ?></td>
+                        <td><?= htmlspecialchars($row['username']) ?></td>
+                        <td><?= htmlspecialchars($row['series_name']) ?></td>
+                        <td><?= (int)$row['episodes'] ?></td>
+                        <td><?= (int)$row['score'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
                 <tr>
-                    <td><?= $rank++; ?></td>
-                    <td><?= htmlspecialchars($row['username']); ?></td>
-                    <td><?= (int)$row['points']; ?></td>
+                    <td colspan="5" class="empty-state">No results yet. Be the first to add one.</td>
                 </tr>
-            <?php
-            endforeach;
-        else:
-            ?>
-            <tr>
-                <td colspan="3" class="empty-state">No results yet. Be the first to play!</td>
-            </tr>
-        <?php endif; ?>
+            <?php endif; ?>
         </tbody>
     </table>
 </section>
+<?php include 'partials/footer.php';?>

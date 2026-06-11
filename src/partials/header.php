@@ -16,7 +16,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/users.php';
     <div class="topbar">
         <div class="brand">
             <h1>My Series List</h1>
-            <p>Compete the series, and climb the leaderboard</p>
+            <p>Compete the series, and share rating with your friends</p>
         </div>
         <nav>
             <ul>

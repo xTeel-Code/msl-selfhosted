@@ -7,8 +7,15 @@ CREATE TABLE IF NOT EXISTS users (
     role VARCHAR(5) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS series (
-    id SERIAL PRIMARY KEY,
-    series_name INT NOT NULL,
-    current_status VARCHAR(40) NOT NULL
-);
+CREATE TABLE entries (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    user_id BIGINT UNSIGNED NOT NULL,
+    series_name VARCHAR(255) NOT NULL,
+    episodes INT NOT NULL DEFAULT 0,
+    score INT NOT NULL DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_entries_user
+        FOREIGN KEY (user_id) REFERENCES users(id)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
