@@ -1,6 +1,4 @@
 <?php
-declare(strict_types=1);
-
 class Database{
     private string $host = "msl-selfhosted-db-1";
     private string $username = "root";

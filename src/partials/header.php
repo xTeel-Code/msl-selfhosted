@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/users.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quiz App</title>
+    <title>Review App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
